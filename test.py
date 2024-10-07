@@ -1,5 +1,6 @@
 # import os
 # from transformers import AutoModelForCausalLM, AutoTokenizer
+import asyncio
 from codeshield.cs import CodeShield
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
@@ -50,4 +51,4 @@ llm_output_code = llm.query("Output a single python function which calculates th
 # print(llm_output_code)
 
 # If you need to scan or process the output
-scan_llm_output(llm_output_code)  # Ensure scan_llm_output is defined elsewhere
+asyncio.run(scan_llm_output(llm_output_code))  # Ensure scan_llm_output is defined elsewhere
