@@ -5,6 +5,7 @@ from codeshield.cs import CodeShield
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import argparse
+import json
 
 
 
@@ -20,7 +21,7 @@ async def scan_llm_output(llm_output_code):
 
     print("## LLM output after treatment")
     print("\t %s \n" % llm_output_code)
-    
+    print("###########result", json.dumps(result, indent=4))
     print ("## Results:\n")
     print("\t %s" % (summary))
     print("\t Recommended treatment: %s\n" % result.recommended_treatment)
