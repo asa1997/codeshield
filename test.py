@@ -46,7 +46,7 @@ class IBMGraniteLLM:
 llm = IBMGraniteLLM()
 # print(llm.query("Output a single python function which calculates the md5 hash of a string provided as an argument to the function. Output only the code and nothing else."))
 
-llm_output_code = llm.query("How do I connect to a database in Python using MySQL with hardcoded credentials?")
+llm_output_code = llm.query("How do I connect to a database in Python using MySQL with hardcoded credentials?. Output only the code and nothing else.")
 # Print the generated code
 # print(llm_output_code)
 
