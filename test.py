@@ -46,4 +46,4 @@ llm_output_code = tokenizer.decode(output_tokens[0], skip_special_tokens=True)
 print(llm_output_code)
 
 # If you need to scan or process the output
-await scan_llm_output(llm_output_code)  # Ensure scan_llm_output is defined elsewhere
+scan_llm_output(llm_output_code)  # Ensure scan_llm_output is defined elsewhere
