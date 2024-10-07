@@ -4,6 +4,9 @@ import asyncio
 from codeshield.cs import CodeShield
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
+import argparse
+
+
 
 async def scan_llm_output(llm_output_code):
     result = await CodeShield.scan_code(llm_output_code)
@@ -42,11 +45,21 @@ class IBMGraniteLLM:
         response = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
         return response
 
+# Create the parser
+parser = argparse.ArgumentParser(description="An example script.")
+
+# Add an argument
+parser.add_argument('prompt', help="Enter the prompt")
+
+# Parse the arguments
+user_input = parser.parse_args()
+
+
 # Example usage
 llm = IBMGraniteLLM()
 # print(llm.query("Output a single python function which calculates the md5 hash of a string provided as an argument to the function. Output only the code and nothing else."))
 
-llm_output_code = llm.query("How do I connect to a database in Python using MySQL with hardcoded credentials?. Output only the code and nothing else.")
+llm_output_code = llm.query(user_input.prompt)
 # Print the generated code
 # print(llm_output_code)
 
