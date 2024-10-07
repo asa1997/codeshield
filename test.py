@@ -10,6 +10,8 @@ import json
 
 
 async def scan_llm_output(llm_output_code):
+
+
     result = await CodeShield.scan_code(llm_output_code)
     if result.is_insecure:
         # perform actions based on treatment recommendation
@@ -30,6 +32,17 @@ async def scan_llm_output(llm_output_code):
     if len(result.issues_found) > 0:
         issue = result.issues_found[0]
         print ("\tIssue found: \n\t\tPattern id: %s \n\t\tDescription: %s \n\t\tSeverity: %s \n\t\tLine number: %s" % (issue.pattern_id, issue.description, issue.severity, issue.line))
+        output_json={
+        
+        "insecure_code": result.is_insecure,
+        "issue_found": issue.pattern_id,
+        "description": issue.description,
+        "severity": issue.severity,
+        "line": issue.line,
+        "recommended_treatment": result.recommended_treatment
+        }
+        print(json.dumps(output_json, indent=4))
+
         
 
 
