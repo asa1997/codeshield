@@ -44,7 +44,7 @@ class IBMGraniteLLM:
 llm = IBMGraniteLLM()
 print(llm.query("Output a single python function which calculates the md5 hash of a string provided as an argument to the function. Output only the code and nothing else."))
 # Print the generated code
-print(llm_output_code)
+# print(llm_output_code)
 
 # If you need to scan or process the output
 # scan_llm_output(llm_output_code)  # Ensure scan_llm_output is defined elsewhere
