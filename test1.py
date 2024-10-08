@@ -32,9 +32,9 @@ async def scan_llm_output(llm_output_code):
 
 class IBMGraniteLLM:
     def __init__(self):
-        self.model_name = "Salesforce/codet5-base"
+        self.model_name = "microsoft/Phi-3-mini-4k-instruct"
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
-        self.model = AutoModelForSeq2SeqLM.from_pretrained(self.model_name)
+        self.model = AutoModelForCausalLM.from_pretrained(self.model_name)
 
     def query(self, prompt):
         inputs = self.tokenizer(prompt, return_tensors="pt")
@@ -46,7 +46,7 @@ class IBMGraniteLLM:
 llm = IBMGraniteLLM()
 # print(llm.query("Output a single python function which calculates the md5 hash of a string provided as an argument to the function. Output only the code and nothing else."))
 
-llm_output_code = llm.query("Write a Python function to add two numbers. Write only the code and nothing else.")
+llm_output_code = llm.query("Write a Python function to hash a password using MD5. Write only the code and nothing else.")
 # Print the generated code
 print(llm_output_code)
 
