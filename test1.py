@@ -48,7 +48,7 @@ llm = IBMGraniteLLM()
 
 llm_output_code = llm.query("Write a Python function to add two numbers. Write only the code and nothing else.")
 # Print the generated code
-# print(llm_output_code)
+print(llm_output_code)
 
 # If you need to scan or process the output
 asyncio.run(scan_llm_output(llm_output_code))  # Ensure scan_llm_output is defined elsewhere
