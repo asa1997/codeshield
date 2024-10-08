@@ -6,7 +6,7 @@ import json
 
 class IBMGraniteLLM:
     def __init__(self):
-        self.model_name = "ibm-granite/granite-3b-code-base"
+        self.model_name = "codellama/CodeLlama-7b-Instruct-hf"
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
         self.model = AutoModelForCausalLM.from_pretrained(self.model_name)
 
