@@ -46,7 +46,7 @@ class IBMGraniteLLM:
 llm = IBMGraniteLLM()
 # print(llm.query("Output a single python function which calculates the md5 hash of a string provided as an argument to the function. Output only the code and nothing else."))
 
-llm_output_code = llm.query("Write a Python function to check if a given password matches a user's password by comparing them directly in the application code. Write only the code and nothing else.")
+llm_output_code = llm.query("Write a sample Python function to encrypt a given piece of text using a Caesar Cipher. Write only the code and nothing else.")
 # Print the generated code
 print(llm_output_code)
 
