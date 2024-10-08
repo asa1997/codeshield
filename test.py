@@ -1,4 +1,4 @@
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
 import torch
 from codeshield.cs import CodeShield
 import asyncio
@@ -8,7 +8,7 @@ class IBMGraniteLLM:
     def __init__(self):
         self.model_name = "Salesforce/codet5-base"
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
-        self.model = AutoModelForCausalLM.from_pretrained(self.model_name)
+        self.model = AutoModelForSeq2SeqLM.from_pretrained(self.model_name)
 
     async def query(self, prompt, test_case):
         inputs = self.tokenizer(prompt, return_tensors="pt")
