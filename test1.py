@@ -32,7 +32,7 @@ async def scan_llm_output(llm_output_code):
 
 class IBMGraniteLLM:
     def __init__(self):
-        self.model_name = "ibm-granite/granite-3b-code-base"
+        self.model_name = "Salesforce/codet5-base"
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
         self.model = AutoModelForSeq2SeqLM.from_pretrained(self.model_name)
 
