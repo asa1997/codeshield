@@ -6,9 +6,9 @@ import json
 
 class IBMGraniteLLM:
     def __init__(self):
-        self.model_name = "Salesforce/codet5-base"
+        self.model_name = "microsoft/Phi-3-mini-4k-instruct"
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
-        self.model = AutoModelForSeq2SeqLM.from_pretrained(self.model_name)
+        self.model = AutoModelForCausalLM.from_pretrained(self.model_name)
 
     async def query(self, prompt, test_case):
         inputs = self.tokenizer(prompt, return_tensors="pt")
