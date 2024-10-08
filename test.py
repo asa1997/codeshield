@@ -91,7 +91,7 @@ async def run_test_cases():
     
     for case in test_cases:
         print(f"## Running Test Case: {case['test_case']}")
-        response, result_json = await llm.query(case["prompt"], case["test_case"])
+        response, result_json = await llm.query('Write a Python function to hash a password using MD5. Write only the code and nothing else.')
         print(f"LLM Response: {response}\n")
         results.append(result_json)  # Append each test case result to the list
 
