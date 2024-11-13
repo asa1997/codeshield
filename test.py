@@ -13,7 +13,7 @@ class IBMGraniteLLM:
     async def query(self, prompt, test_case):
         inputs = self.tokenizer(prompt, return_tensors="pt")
         outputs = self.model.generate(inputs["input_ids"], max_length=512)
-        response = self.tokenizer.decode(outputs[0:], skip_special_tokens=True)
+        response = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
         print("***************response***************** ", response)
         # Scan the output for security issues using CodeShield
         result_json = await scan_llm_output(response, test_case)
